@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IM</string>
+    <string name="im_back_str">返回</string>
+    <string name="im_toast_dir_nofile">该路径下没有附件</string>
+    <string name="im_ok_string">确定</string>
+    <string name="im_cancel_string">取消</string>
+    <string name="im_receive_string">接受</string>
+    <string name="im_toast_revice_success_str">接收成功</string>
+    <string name="im_toast_revice_fail_str">接收失败</string>
+    <string name="im_toast_send_fail_str">发送失败</string>
+    <string name="im_toast_send_success_str">发送成功</string>
+    <string name="im_toast_send_empty_str">发送内容为空</string>
+
+    <!-- IM的状态 -->
+    <string name="im_statue_online_str">在线</string>
+    <string name="im_statue_offline_str">离线</string>
+    <string name="im_statue_away_str">离开</string>
+    <string name="im_statue_dnd_str">忙碌</string>
+    <string name="im_statue_q_str">Q我</string>
+    <string name="im_statue_hide_str">隐身</string>
+    <string name="im_toast_disconnect_str">抱歉，您没有连接网络</string>
+    <string name="im_contact_group_manager_title">分组管理</string>
+    <string name="im_finish_str">完成</string>
+    <string name="im_add_contact_group_str">添加分组</string>
+    <string name="im_add_contact_group_sub_str">请添加新的分组名称</string>
+    <string name="im_rename_contact_group_str">修改分组</string>
+    <string name="im_rename_contact_group_sub_str">请设置新的分组名称</string>
+    <string name="im_add_contact_group_hide_str">请输入分组名</string>
+    <string name="im_toast_name_empty_str">抱歉，内容不能为空！</string>
+    <string name="im_create_group_success_format_str">%s分组已创建</string>
+    <string name="im_toast_contact_group_isexist_str">该分组已经存在</string>
+    <string name="im_tool_contact_str">联系人</string>
+    <string name="im_tool_msg_str">消息</string>
+    <string name="im_tool_group_str">群组</string>
+    <string name="im_add_str">添加</string>
+    <string name="im_add_user_lable">添加好友</string>
+    <string name="im_search_btn_id">查询</string>
+    <string name="im_useraccount_hide_str">im号/昵称</string>
+    <string name="im_toast_add_user_success_str">该好友已添加</string>
+    <string name="im_tost_add_user_fail_str">添加好友失败</string>
+    <string name="im_user_verificate_title">身份验证</string>
+    <string name="im_send_lable_str">发送</string>
+    <string name="im_nickname_lable">备注</string>
+    <string name="im_group_lable">分组</string>
+    <string name="im_contact_group_str">选择分组</string>
+    <string name="im_chatroom_create_lable">创建</string>
+    <string name="im_create_chatroom_title">创建聊天室</string>
+    <string name="im_chatroom_name_lable">群名称</string>
+    <string name="im_next_step_str">下一步</string>
+    <string name="im_pre_step_str">上一步</string>
+    <string name="im_select_multiuser_title">选择好友</string>
+    <string name="im_finish_create_lable">完成创建</string>
+    <string name="im_toast_chatroom_name_empty_str">请输入群组的名称</string>
+    <string name="im_toast_create_chatroom_success_str">群组创建成功</string>
+    <string name="im_toast_create_chatroom_fail_str">群组创建失败</string>
+    <string name="im_login_title">登录</string>
+    <string name="im_register_title">注册</string>
+    <string name="im_account_lable">账号</string>
+    <string name="im_password_lable">密码</string>
+    <string name="im_register_nickname_id">昵称</string>
+    <string name="im_more_lable">更多</string>
+    <string name="im_userinfo_account_lable">账号信息</string>
+    <string name="im_userinfo_nickname_lable">账号昵称</string>
+    <string name="im_userinfo_signature_lable">个性签名</string>
+    <string name="im_send_msg_lable">发消息</string>
+    <string name="im_delete_user_lable">删除好友</string>
+    <string name="im_unfiled_group_name_lable">未分组好友</string>
+
+</resources>

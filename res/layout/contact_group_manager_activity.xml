@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_contact_group_manager_title" />
+
+        <TextView
+            android:id="@+id/finish_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_finish_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/add_btn_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/am_forum_add_menu_d"
+        android:drawablePadding="5dip"
+        android:gravity="left|center_vertical"
+        android:paddingBottom="10dip"
+        android:paddingLeft="10dip"
+        android:paddingTop="10dip"
+        android:text="@string/im_add_contact_group_str"
+        android:textColor="@color/color_676767" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/am_forum_tool_line" />
+
+    <ListView
+        android:id="@+id/listview_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@drawable/am_forum_tool_line"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true" >
+    </ListView>
+
+</LinearLayout>

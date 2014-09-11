@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_tool_contact_str" />
+
+        <TextView
+            android:id="@+id/add_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_add_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/xxx01"
+        android:layout_width="0dip"
+        android:layout_height="0dip" />
+
+    <View
+        android:id="@+id/xxx02"
+        android:layout_width="0dip"
+        android:layout_height="0dip" />
+
+    <com.ad.view.IphoneTreeView
+        android:id="@+id/friend_xlistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:transcriptMode="normal" />
+
+</LinearLayout>

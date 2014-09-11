@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dlg_bg_shape"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="15dip" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/im_add_contact_group_str"
+        android:textColor="@android:color/black"
+        android:id="@+id/dlg_title_view_id"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="15dip"
+        android:text="@string/im_add_contact_group_sub_str"
+        android:textColor="@android:color/black"
+        android:id="@+id/dlg_sub_view_id"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editview_id"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/am_forum_tool_bg"
+        android:gravity="left|center_vertical"
+        android:hint="@string/im_add_contact_group_hide_str"
+        android:paddingBottom="3dip"
+        android:paddingLeft="5dip"
+        android:paddingTop="3dip"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:src="@drawable/am_forum_tool_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/cancel_btn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dip"
+            android:text="@string/im_cancel_string"
+            android:textColor="@color/color_2cb1f4"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/forum_find_tool_splite_line" />
+
+        <TextView
+            android:id="@+id/ok_btn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dip"
+            android:text="@string/im_ok_string"
+            android:textColor="@color/color_2cb1f4"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

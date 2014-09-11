@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/formclient_row_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dip"
+        android:layout_marginTop="3dip"
+        android:gravity="center"
+        android:text="2015.03.03"
+        android:textColor="#FF666666"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal"
+        android:paddingBottom="3.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="3.0dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right" >
+
+            <TextView
+                android:id="@+id/formclient_row_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:background="@drawable/out_bg_selector"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FF000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/formclient_row_userid"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/h7" />
+    </LinearLayout>
+
+</LinearLayout>

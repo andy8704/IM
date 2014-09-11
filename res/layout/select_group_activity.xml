@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_contact_group_str" />
+
+        <TextView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/im_back_navi_icon"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_back_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@drawable/am_forum_tool_line"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true" >
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_user_verificate_title" />
+
+        <TextView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/im_back_navi_icon"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_back_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/send_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="@string/im_send_lable_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/am_forum_tool_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_nickname_lable"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/nickname_view_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:singleLine="true"
+            android:textColor="@color/color_676767"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/del_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/am_forum_del_logo"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_group_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/am_forum_tool_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_group_lable"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/group_view_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:singleLine="true"
+            android:textColor="@color/color_676767"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/list_arrow_icon" />
+    </LinearLayout>
+
+</LinearLayout>

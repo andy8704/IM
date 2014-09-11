@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 帧布局：提交后弹出布局提示，正在登录中 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/formlogin_layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFEFEFEF"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/formlogin_pb"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/formlogin_tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:text="正在登陆"
+            android:textColor="#FF000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/formlogin_layout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFEFEFEF"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            style="@style/titleStyle"
+            android:layout_width="match_parent" >
+
+            <TextView
+                style="@style/titleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/im_register_title" />
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="20dip"
+                android:background="@drawable/am_forum_tool_bg"
+                android:gravity="center"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip" >
+
+                <TextView
+                    android:id="@+id/formlogin_tv_userid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/im_account_lable"
+                    android:textColor="#FF000000"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/formlogin_userid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1.0"
+                    android:background="@android:color/transparent"
+                    android:inputType="textWebEditText"
+                    android:maxLength="20"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/am_forum_tool_bg"
+                android:gravity="center"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip" >
+
+                <TextView
+                    android:id="@+id/formlogin_tv_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/im_password_lable"
+                    android:textColor="#FF000000"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/formlogin_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1.0"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPassword"
+                    android:maxLength="30"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/formlogin_btsubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dip"
+                        android:layout_weight="1.0"
+                        android:background="@color/color_2cb1f4"
+                        android:padding="10dip"
+                        android:text="@string/im_ok_string"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/formlogin_btcancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dip"
+                        android:layout_weight="1.0"
+                        android:background="@color/color_2cb1f4"
+                        android:padding="10dip"
+                        android:text="@string/im_cancel_string"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TextView
+                android:id="@+id/login_view_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:gravity="center"
+                android:padding="15dip"
+                android:text="@string/im_login_title"
+                android:textColor="@color/color_2cb1f4"
+                android:textSize="14sp" />
+        </TableLayout>
+    </LinearLayout>
+
+</FrameLayout>

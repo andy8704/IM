@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_create_chatroom_title" />
+
+        <TextView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/im_back_navi_icon"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_tool_group_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/am_forum_tool_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_chatroom_name_lable"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/chatroom_view_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:singleLine="true"
+            android:textColor="@color/color_676767"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/del_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/am_forum_del_logo"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dip"
+            android:id="@+id/next_btn_id"
+            android:background="@color/color_2cb1f4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip" >
+
+            <TextView
+                android:id="@+id/back_btn_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/color_2cb1f4"
+                android:gravity="center"
+                android:text="@string/im_next_step_str"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                android:src="@drawable/im_back_navi_icon" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

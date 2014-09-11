@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_contact_group_manager_title"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/im_back_navi_icon"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_back_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/more_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_more_lable"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/photo_img_view_id"
+                    android:layout_width="55dip"
+                    android:layout_height="55dip"
+                    android:src="@drawable/h7" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dip" >
+
+                    <TextView
+                        android:id="@+id/user_name_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="君莫笑"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/user_addr_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dip"
+                        android:text="男 27岁 安徽 合肥"
+                        android:textColor="@color/color_676767"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:background="@drawable/am_forum_tool_bg"
+                    android:gravity="center"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/im_userinfo_account_lable"
+                        android:textColor="@color/color_676767"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/user_account_view_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1.0"
+                        android:background="@android:color/transparent"
+                        android:maxLength="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:background="@drawable/am_forum_tool_bg"
+                    android:gravity="center"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/im_userinfo_nickname_lable"
+                        android:textColor="@color/color_676767"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/user_nickname_view_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1.0"
+                        android:background="@android:color/transparent"
+                        android:maxLength="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:background="@drawable/am_forum_tool_bg"
+                    android:gravity="center"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/im_userinfo_signature_lable"
+                        android:textColor="@color/color_676767"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/user_signature_view_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1.0"
+                        android:background="@android:color/transparent"
+                        android:maxLength="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/am_forum_bottom_tool_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/send_msg_btn_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dip"
+            android:text="@string/im_send_msg_lable"
+            android:textColor="@color/color_2cb1f4"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

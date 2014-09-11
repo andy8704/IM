@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/titleStyle"
+        android:layout_width="match_parent" >
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/im_add_str" />
+
+        <TextView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/im_back_navi_icon"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="20dip"
+            android:text="@string/im_tool_contact_str"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:text="@string/im_add_user_lable"
+            android:textColor="@color/color_676767"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/am_forum_tool_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/editview_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="left|center_vertical"
+                android:hint="@string/im_useraccount_hide_str"
+                android:paddingBottom="3dip"
+                android:paddingLeft="5dip"
+                android:paddingTop="3dip"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/search_btn_id"
+                android:layout_width="wrap_content"
+                android:layout_height="35dip"
+                android:layout_marginRight="5dip"
+                android:background="@color/color_title_bg"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip"
+                android:text="@string/im_search_btn_id"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@drawable/am_forum_tool_line"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>
