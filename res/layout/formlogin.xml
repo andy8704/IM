@@ -8,7 +8,7 @@
         android:id="@+id/formlogin_layout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#FFEFEFEF"
+        android:background="@drawable/splash"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone" >

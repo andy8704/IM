@@ -31,6 +31,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -139,14 +140,17 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 		mAttachBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// Intent intent = new Intent(IMClientActivity.this,
-				// FormFilesActivity.class);
-				// startActivityForResult(intent, 2);
-
-				if (mMenuView.getVisibility() == View.GONE)
+				if (mMenuView.getVisibility() == View.GONE) {
+					mInputView.setFocusable(false);
+					mInputView.clearFocus();
+					onHideSoftStatue();
 					mMenuView.setVisibility(View.VISIBLE);
-				else
+				} else {
+					mInputView.requestFocus();
+					mInputView.setFocusable(true);
 					mMenuView.setVisibility(View.GONE);
+					onChangeSoftStatue();
+				}
 			}
 		});
 		mSendBtn.setOnClickListener(new OnClickListener() {
@@ -168,6 +172,27 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 		mPosBtn.setOnClickListener(mClick);
 	}
 
+	/**
+	 * 
+	 * @描述:切换输入法的状态
+	 * @参数
+	 * @返回值 void
+	 * @异常
+	 */
+	private void onChangeSoftStatue() {
+		// 隐藏输入法
+		InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+		// 显示或者隐藏输入法
+		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+	}
+
+	private void onHideSoftStatue() {
+		InputMethodManager imm = (InputMethodManager) mInputView.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+		if (null != imm && imm.isActive()) {
+			imm.hideSoftInputFromWindow(mInputView.getApplicationWindowToken(), 0);
+		}
+	}
+
 	private String mCameraPicPath = null;
 
 	private View.OnClickListener mClick = new View.OnClickListener() {
@@ -176,16 +201,20 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 			switch (view.getId()) {
 			case R.id.pic_btn_id:
 				BitmapDecodeUtil.onGallery(IMClientActivity.this);
+				mMenuView.setVisibility(View.GONE);
 				break;
 			case R.id.camera_btn_id:
 				mCameraPicPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/temp/camera.jpg";
 				BitmapDecodeUtil.onCamera(IMClientActivity.this, mCameraPicPath);
+				mMenuView.setVisibility(View.GONE);
 				break;
 			case R.id.file_btn_id:
 				Intent intent = new Intent(IMClientActivity.this, FormFilesActivity.class);
 				startActivityForResult(intent, 2);
+				mMenuView.setVisibility(View.GONE);
 				break;
 			case R.id.pos_btn_id:
+				mMenuView.setVisibility(View.GONE);
 				break;
 			}
 		}
@@ -345,52 +374,7 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 				mProgressBar.setVisibility(View.GONE);
 				break;
 			case 5:
-				final IncomingFileTransfer infiletransfer = request.accept();
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(IMClientActivity.this);
-
-				builder.setTitle("附件").setCancelable(false).setMessage("是否接收文件：" + file.getName() + "?")
-						.setPositiveButton("����", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								try {
-									infiletransfer.recieveFile(file);
-								} catch (XMPPException e) {
-									e.printStackTrace();
-									ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_fail_str));
-								}
-
-								handler.sendEmptyMessage(2);
-
-								Timer timer = new Timer();
-								TimerTask updateProgessBar = new TimerTask() {
-									public void run() {
-										if ((infiletransfer.getAmountWritten() >= request.getFileSize())
-												|| (infiletransfer.getStatus() == FileTransfer.Status.error)
-												|| (infiletransfer.getStatus() == FileTransfer.Status.refused)
-												|| (infiletransfer.getStatus() == FileTransfer.Status.cancelled)
-												|| (infiletransfer.getStatus() == FileTransfer.Status.complete)) {
-											cancel();
-											handler.sendEmptyMessage(4);
-										} else {
-											long p = infiletransfer.getAmountWritten() * 100L / infiletransfer.getFileSize();
-
-											android.os.Message message = handler.obtainMessage();
-											message.arg1 = Math.round((float) p);
-											message.what = 3;
-											message.sendToTarget();
-											ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_success_str));
-										}
-									}
-								};
-								timer.scheduleAtFixedRate(updateProgessBar, 10L, 10L);
-								dialog.dismiss();
-							}
-						}).setNegativeButton(getString(R.string.im_cancel_string), new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								request.reject();
-								dialog.cancel();
-							}
-						}).show();
+				onReciveFile();
 				break;
 			case 6:
 				mAdapter.notifyDataSetChanged();
@@ -404,6 +388,55 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 			}
 		};
 	};
+	
+	private void onReciveFile(){
+		final IncomingFileTransfer infiletransfer = request.accept();
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(IMClientActivity.this);
+
+		builder.setTitle("附件").setCancelable(false).setMessage("是否接收文件：" + file.getName() + "?")
+				.setPositiveButton(getString(R.string.im_ok_string), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						try {
+							infiletransfer.recieveFile(file);
+						} catch (XMPPException e) {
+							e.printStackTrace();
+							ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_fail_str));
+						}
+
+						handler.sendEmptyMessage(2);
+
+						Timer timer = new Timer();
+						TimerTask updateProgessBar = new TimerTask() {
+							public void run() {
+								if ((infiletransfer.getAmountWritten() >= request.getFileSize())
+										|| (infiletransfer.getStatus() == FileTransfer.Status.error)
+										|| (infiletransfer.getStatus() == FileTransfer.Status.refused)
+										|| (infiletransfer.getStatus() == FileTransfer.Status.cancelled)
+										|| (infiletransfer.getStatus() == FileTransfer.Status.complete)) {
+									cancel();
+									handler.sendEmptyMessage(4);
+								} else {
+									long p = infiletransfer.getAmountWritten() * 100L / infiletransfer.getFileSize();
+
+									android.os.Message message = handler.obtainMessage();
+									message.arg1 = Math.round((float) p);
+									message.what = 3;
+									message.sendToTarget();
+									ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_success_str));
+								}
+							}
+						};
+						timer.scheduleAtFixedRate(updateProgessBar, 10L, 10L);
+						dialog.dismiss();
+					}
+				}).setNegativeButton(getString(R.string.im_cancel_string), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						request.reject();
+						dialog.cancel();
+					}
+				}).show();
+	}
 
 	@Override
 	protected void onDestroy() {
@@ -508,7 +541,7 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 	@Override
 	public void onRefresh() {
 		if (!bNextPage) {
-			// mListView.stopRefresh();
+			mListView.stopRefresh();
 			return;
 		}
 

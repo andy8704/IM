@@ -48,7 +48,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.0"
-        android:background="#FFFFFFFF"
+        android:background="@drawable/chat_bg_01"
         android:cacheColorHint="@null"
         android:divider="@null"
         android:listSelector="@android:color/transparent"
@@ -107,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible" >
+            android:visibility="gone" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                     android:gravity="center"
                     android:padding="10dip"
                     android:text="图片"
-                    android:drawableTop="@drawable/im_pic_icon"
+                    android:drawableTop="@drawable/chat_tool_photo"
                     android:textColor="@color/color_676767"
                     android:textSize="14sp" />
 
@@ -134,6 +134,7 @@
                     android:gravity="center"
                     android:padding="10dip"
                     android:text="拍照"
+                    android:drawableTop="@drawable/chat_tool_camera"
                     android:textColor="@color/color_676767"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -151,6 +152,7 @@
                     android:gravity="center"
                     android:padding="10dip"
                     android:text="文件"
+                    android:drawableTop="@drawable/chat_tool_video"
                     android:textColor="@color/color_676767"
                     android:textSize="14sp" />
 
@@ -162,6 +164,7 @@
                     android:gravity="center"
                     android:padding="10dip"
                     android:text="位置"
+                    android:drawableTop="@drawable/chat_tool_location"
                     android:textColor="@color/color_676767"
                     android:textSize="14sp" />
             </LinearLayout>

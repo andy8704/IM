@@ -1,8 +1,6 @@
 package com.xmpp.im;
 
-import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.packet.Presence;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ad.util.NetWorkMonitor;
+import com.ad.util.ToastUtil;
 import com.xmpp.im.client.util.ImUtil;
 import com.xmpp.im.client.util.XmppTool;
 
@@ -50,7 +50,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 		btsave.setOnClickListener(this);
 		Button btcancel = (Button) findViewById(R.id.formlogin_btcancel);
 		btcancel.setOnClickListener(this);
-		
+
 		mRegisterBtn = (TextView) findViewById(R.id.register_view_id);
 		mRegisterBtn.setOnClickListener(this);
 	}
@@ -59,31 +59,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.formlogin_btsubmit:
-			final String USERID = this.useridText.getText().toString();
-			final String PWD = this.pwdText.getText().toString();
-
-			Thread t = new Thread(new Runnable() {
-				public void run() {
-					handler.sendEmptyMessage(1);
-					try {
-						XmppTool.getConnection().login(USERID, PWD);
-						// 先获取离线的消息
-						ImUtil.onSetOfflineMsg(XmppTool.getOffLineMessage());
-
-						// 设置为在线状态
-						XmppTool.onLine();
-						XmppTool.onSetUserId(USERID);
-						Intent intent = new Intent();
-						intent.setClass(LoginActivity.this, MainActivity.class);
-						LoginActivity.this.startActivity(intent);
-						LoginActivity.this.finish();
-					} catch (XMPPException e) {
-						XmppTool.closeConnection();
-						handler.sendEmptyMessage(2);
-					}
-				}
-			});
-			t.start();
+			onLogIn();
 			break;
 		case R.id.formlogin_btcancel:
 			finish();
@@ -94,6 +70,40 @@ public class LoginActivity extends Activity implements OnClickListener {
 			finish();
 			break;
 		}
+	}
+
+	private void onLogIn() {
+		
+		if(!NetWorkMonitor.isConnect(this)){
+			ToastUtil.onShowToast(getApplicationContext(), getString(R.string.im_toast_disconnect_str));
+			return;
+		}
+		
+		final String USERID = this.useridText.getText().toString();
+		final String PWD = this.pwdText.getText().toString();
+
+		Thread t = new Thread(new Runnable() {
+			public void run() {
+				handler.sendEmptyMessage(1);
+				try {
+					XmppTool.getConnection().login(USERID, PWD);
+					// 先获取离线的消息
+					ImUtil.onSetOfflineMsg(XmppTool.getOffLineMessage());
+
+					// 设置为在线状态
+					XmppTool.onLine();
+					XmppTool.onSetUserId(USERID);
+					Intent intent = new Intent();
+					intent.setClass(LoginActivity.this, MainActivity.class);
+					LoginActivity.this.startActivity(intent);
+					LoginActivity.this.finish();
+				} catch (XMPPException e) {
+					XmppTool.closeConnection();
+					handler.sendEmptyMessage(2);
+				}
+			}
+		});
+		t.start();
 	}
 
 	private Handler handler = new Handler() {
