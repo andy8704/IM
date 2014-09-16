@@ -40,6 +40,11 @@ public class MessageModel implements Serializable {
 	 * 0: In 1: out
 	 */
 	public int fromFlag;
+	
+	/**
+	 * 文件的存储路径
+	 */
+	public String filePath;
 
 	public MessageModel() {
 		fromUser = null;

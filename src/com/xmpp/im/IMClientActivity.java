@@ -22,6 +22,7 @@ import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnShowListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
@@ -401,7 +402,8 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 							infiletransfer.recieveFile(file);
 						} catch (XMPPException e) {
 							e.printStackTrace();
-							ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_fail_str));
+							dialog.dismiss();
+							ToastUtil.onShowThreadToast(getBaseContext(), getString(R.string.im_toast_revice_fail_str));
 						}
 
 						handler.sendEmptyMessage(2);
@@ -423,7 +425,7 @@ public class IMClientActivity extends Activity implements IXListViewListener {
 									message.arg1 = Math.round((float) p);
 									message.what = 3;
 									message.sendToTarget();
-									ToastUtil.onShowToast(getBaseContext(), getString(R.string.im_toast_revice_success_str));
+									ToastUtil.onShowThreadToast(getBaseContext(), getString(R.string.im_toast_revice_success_str));
 								}
 							}
 						};
