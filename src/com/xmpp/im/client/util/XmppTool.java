@@ -68,6 +68,7 @@ import org.jivesoftware.smackx.provider.RosterExchangeProvider;
 import org.jivesoftware.smackx.provider.StreamInitiationProvider;
 import org.jivesoftware.smackx.provider.VCardProvider;
 import org.jivesoftware.smackx.provider.XHTMLExtensionProvider;
+import org.jivesoftware.smackx.pubsub.PresenceState;
 import org.jivesoftware.smackx.search.UserSearch;
 import org.jivesoftware.smackx.search.UserSearchManager;
 
@@ -1212,5 +1213,21 @@ public class XmppTool {
 		pm.addExtensionProvider("bad-payload", "http://jabber.org/protocol/commands", new AdHocCommandDataProvider.BadPayloadError());
 		pm.addExtensionProvider("bad-sessionid", "http://jabber.org/protocol/commands", new AdHocCommandDataProvider.BadSessionIDError());
 		pm.addExtensionProvider("session-expired", "http://jabber.org/protocol/commands", new AdHocCommandDataProvider.SessionExpiredError());
+	}
+
+	/**
+	 * 
+	* @描述: 获取离线添加好友请求
+	* @参数 @return
+	* @返回值 Presence
+	* @异常
+	 */
+	public static Presence getOfflineRoseterRequest() {
+		Presence presence = new Presence(Presence.Type.available, null, 0, Presence.Mode.available) {
+			public String getExtensionsXML() {
+				return "＜c node=\"http://exodus.jabberstudio.org/caps\" ver=\"0.9.1.0\" xmlns=\"http://jabber.org/protocol/caps\"/＞";
+			}
+		};
+		return presence;
 	}
 }
