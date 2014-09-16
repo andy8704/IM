@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.jivesoftware.smackx.muc.HostedRoom;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +21,7 @@ import android.widget.TextView;
 
 import com.xmpp.im.adapter.chatroomListAdapter;
 import com.xmpp.im.client.util.XmppTool;
+import com.xmpp.im.util.IMCommDefine;
 
 /**
  * 
@@ -37,10 +41,9 @@ public class ChatRootFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		onGetChatRoom();
 
-		List<HostedRoom> temp = XmppTool.onGetHostedRoom();
-		if (null != temp && !temp.isEmpty())
-			mChatRoomList.addAll(temp);
+		onRegisterBroadcast();
 	}
 
 	@Override
@@ -48,6 +51,14 @@ public class ChatRootFragment extends Fragment {
 		View view = inflater.inflate(R.layout.chatroom_fragment, container, false);
 		initView(view);
 		return view;
+	}
+
+	private void onGetChatRoom() {
+
+		mChatRoomList.clear();
+		List<HostedRoom> temp = XmppTool.onGetHostedRoom();
+		if (null != temp && !temp.isEmpty())
+			mChatRoomList.addAll(temp);
 	}
 
 	private void initView(final View view) {
@@ -83,7 +94,27 @@ public class ChatRootFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+
+		unRegisterBroadcast();
 	}
-	
-	
+
+	private void onRegisterBroadcast() {
+
+		IntentFilter filter = new IntentFilter(IMCommDefine.broadcast_chatroom_change);
+		getActivity().registerReceiver(mBroadcast, filter);
+	}
+
+	private void unRegisterBroadcast() {
+		if (null != mBroadcast)
+			getActivity().unregisterReceiver(mBroadcast);
+	}
+
+	private BroadcastReceiver mBroadcast = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context arg0, Intent arg1) {
+			onGetChatRoom();
+			if (null != mAdapter)
+				mAdapter.notifyDataSetChanged();
+		}
+	};
 }
