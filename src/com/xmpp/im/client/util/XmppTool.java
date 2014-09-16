@@ -896,6 +896,7 @@ public class XmppTool {
 		if (getConnection() == null)
 			return null;
 		try {
+			
 			// 使用XMPPConnection创建一个MultiUserChat窗口
 			MultiUserChat muc = new MultiUserChat(getConnection(), roomsName + "@conference." + getConnection().getServiceName());
 			// 聊天室服务将会决定要接受的历史记录数量

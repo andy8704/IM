@@ -16,6 +16,11 @@ public interface IMCommDefine {
 	 * 消息监听广播发出的事件
 	 */
 	public String broadcast_msg = "broadcastMsg";
+	
+	/**
+	 * 
+	 */
+	public String broadcast_chatroom_msg = "broadcastChatRoomMsg";
 
 	/**
 	 * 群组发生改变的广播事件

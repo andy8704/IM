@@ -73,7 +73,12 @@ public class ChatRootFragment extends Fragment {
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int postion, long arg3) {
-
+				HostedRoom room = mChatRoomList.get(postion);
+				if(null != room){
+					Intent intent = new Intent(getActivity(), IMChatRoomClientActivity.class);
+					intent.putExtra(IMCommDefine.intent_data, room.getName());
+					getActivity().startActivity(intent);
+				}
 			}
 		});
 
